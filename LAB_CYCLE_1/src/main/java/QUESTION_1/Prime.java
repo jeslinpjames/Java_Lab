@@ -5,34 +5,34 @@
 
 /**
  *
- * @author james
+ * @author jeslinpjames
  */
 public class Prime {
     public static void main(String args[]){
        int n = Integer.parseInt(args[0]);
        Prime ob = new Prime();
        boolean b = ob.check_prime(n);
-       System.out.println(b);
-       int count =0,flag=0;
-       while(flag==0){
-           int i = 1; 
+       int count =0;
+       int i = 1;
+       System.out.print("The First "+n+" prime numbers are : ");
+       while(count<n){
            boolean ch = ob.check_prime(i);
            if(ch){
                count++;
+	       System.out.print(i+" ");
            }
-           if (count == n)
-               flag++;
-       }
-        
+           i++;
+       }       
+       System.out.println();
     }
     public boolean check_prime(int no){
         int c =0;
         boolean b = false;
-        for(int i =1;i<no/2;i++){
+        for(int i =1;i<=no/2;i++){
             if (no%i==0)
                 c++;
         }
-        if (c>1)
+        if (c==1)
             b = true;
         return b;
     }
