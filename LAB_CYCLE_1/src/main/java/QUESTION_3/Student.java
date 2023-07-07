@@ -40,7 +40,7 @@ public class Student {
         System.out.println("Roll No : "+roll_no);
         System.out.println("--------------------------------------");
         for(int i=0;i<5;i++)
-            System.out.println("Mark of subject "+(i+1)+"is : "+marks[i]);
+            System.out.println("Mark of subject "+(i+1)+" is : "+marks[i]);
         System.out.println("--------------------------------------");
         System.out.println("Total Marks = "+ total);
     }
