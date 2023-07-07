@@ -11,8 +11,8 @@ package QUESTION_4;
 public class Complex {
     float real, imaginary;
     public Complex(){
-        real =0.0;
-        imaginary = 0.0;
+        real =(float) 0.0;
+        imaginary = (float) 0.0;
     }
     public Complex(float real,float imaginary){
         this.real = real;
