@@ -6,7 +6,7 @@ package QUESTION_2;
 
 /**
  *
- * @author james
+ * @author jeslinpjames
  */
 public class strMain {
      public static void main(String[] args) {
