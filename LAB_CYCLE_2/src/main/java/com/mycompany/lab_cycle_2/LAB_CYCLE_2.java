@@ -6,7 +6,7 @@ package com.mycompany.lab_cycle_2;
 
 /**
  *
- * @author james
+ * @author jeslinpjames
  */
 public class LAB_CYCLE_2 {
 

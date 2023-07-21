@@ -1,0 +1,247 @@
+
+public class StudentGUI extends javax.swing.JFrame {
+
+    private GradeManagementSystem gradeManagementSystem;
+
+    /**
+     * Creates new form StudentGUI
+     */
+    public StudentGUI() {
+        initComponents();
+
+        // Initialize the grade management system
+        gradeManagementSystem = new GradeManagementSystem();
+
+        // Add action listeners to buttons
+        addStudents.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                String name = JOptionPane.showInputDialog(null, "Enter student name:", "Add Student", JOptionPane.QUESTION_MESSAGE);
+                if (name != null && !name.trim().isEmpty()) {
+                    try {
+                        int rollNumber = Integer.parseInt(JOptionPane.showInputDialog(null, "Enter student roll number:", "Add Student", JOptionPane.QUESTION_MESSAGE));
+                        gradeManagementSystem.addStudent(name, rollNumber);
+                    } catch (NumberFormatException e) {
+                        JOptionPane.showMessageDialog(null, "Invalid roll number. Please enter a valid number.", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Invalid name. Please enter a valid name.", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
+
+        addMarks.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                int rollNumber = getRollNumberInput();
+                if (rollNumber != -1) {
+                    String subject = JOptionPane.showInputDialog(null, "Enter subject name:", "Add Marks", JOptionPane.QUESTION_MESSAGE);
+                    if (subject != null && !subject.trim().isEmpty()) {
+                        try {
+                            double marks = Double.parseDouble(JOptionPane.showInputDialog(null, "Enter marks for " + subject + ":", "Add Marks", JOptionPane.QUESTION_MESSAGE));
+                            gradeManagementSystem.addMarks(rollNumber, subject, marks);
+                        } catch (NumberFormatException e) {
+                            JOptionPane.showMessageDialog(null, "Invalid marks. Please enter a valid number.", "Error", JOptionPane.ERROR_MESSAGE);
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Invalid subject name. Please enter a valid name.", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+            }
+        });
+
+        displayNames.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                String names = gradeManagementSystem.displayNames();
+                jTextPane1.setText(names);
+            }
+        });
+
+        displayGrades.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                int rollNumber = getRollNumberInput();
+                if (rollNumber != -1) {
+                    String grades = gradeManagementSystem.displayGrades(rollNumber);
+                    jTextPane1.setText(grades);
+                }
+            }
+        });
+
+        findStdAvg.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                int rollNumber = getRollNumberInput();
+                if (rollNumber != -1) {
+                    double avgGrade = gradeManagementSystem.findAverageStudent(rollNumber);
+                    jTextPane1.setText("Average Grade for Student: " + avgGrade);
+                }
+            }
+        });
+
+        findClsAvg.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                double avgGrade = gradeManagementSystem.findAverageClass();
+                jTextPane1.setText("Average Grade for Class: " + avgGrade);
+            }
+        });
+
+        clearData.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                gradeManagementSystem.clearData();
+                jTextPane1.setText("Data cleared successfully.");
+            }
+        });
+    }
+
+    private int getRollNumberInput() {
+        try {
+            int rollNumber = Integer.parseInt(JOptionPane.showInputDialog(null, "Enter student roll number:", "Roll Number", JOptionPane.QUESTION_MESSAGE));
+            return rollNumber;
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Invalid roll number. Please enter a valid number.", "Error", JOptionPane.ERROR_MESSAGE);
+            return -1;
+        }
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">
+    private void initComponents() {
+
+        jPanel1 = new javax.swing.JPanel();
+        addStudents = new javax.swing.JButton();
+        addMarks = new javax.swing.JButton();
+        displayNames = new javax.swing.JButton();
+        displayGrades = new javax.swing.JButton();
+        findStdAvg = new javax.swing.JButton();
+        findClsAvg = new javax.swing.JButton();
+        clearData = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextPane1 = new javax.swing.JTextPane();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        addStudents.setText("Add Students");
+
+        addMarks.setText("Add Marks");
+
+        displayNames.setText("Display Names");
+
+        displayGrades.setText("Display Grades");
+
+        findStdAvg.setText("Find Average(Student)");
+
+        findClsAvg.setText("Find Average (Class)");
+
+        clearData.setText("Clear Data");
+
+        jScrollPane1.setViewportView(jTextPane1);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(findStdAvg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(clearData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(findClsAvg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(displayGrades, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(displayNames, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(addMarks, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(addStudents, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 472, Short.MAX_VALUE)
+                .addGap(14, 14, 14))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(addStudents)
+                        .addGap(18, 18, 18)
+                        .addComponent(addMarks)
+                        .addGap(18, 18, 18)
+                        .addComponent(displayNames)
+                        .addGap(18, 18, 18)
+                        .addComponent(displayGrades)
+                        .addGap(18, 18, 18)
+                        .addComponent(findStdAvg)
+                        .addGap(18, 18, 18)
+                        .addComponent(findClsAvg)
+                        .addGap(18, 18, 18)
+                        .addComponent(clearData)))
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        pack();
+    }// </editor-fold>
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(StudentGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(StudentGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(StudentGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(StudentGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new StudentGUI().setVisible(true);
+            }
+        });
+    }
+
+    // Variables declaration - do not modify
+    private javax.swing.JButton addMarks;
+    private javax.swing.JButton addStudents;
+    private javax.swing.JButton clearData;
+    private javax.swing.JButton displayGrades;
+    private javax.swing.JButton displayNames;
+    private javax.swing.JButton findClsAvg;
+    private javax.swing.JButton findStdAvg;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextPane jTextPane1;
+    // End of variables declaration
+}
