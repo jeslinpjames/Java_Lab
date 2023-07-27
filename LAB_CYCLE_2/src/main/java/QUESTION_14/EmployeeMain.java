@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package QUESTION_3;
+package QUESTION_14;
 
 import java.util.Scanner;
 
@@ -10,13 +10,15 @@ import java.util.Scanner;
  *
  * @author jeslinpjames
  */
-public class PascalsMain {
+public class EmployeeMain {
     public static void main(String args[]){
-        System.out.print("Enter the number of rows required : ");
         Scanner sc = new Scanner(System.in);
-        int len = sc .nextInt();
-        Pascals obj = new Pascals(len);
-        obj.printPascals();
+        System.out.print("Enter the count of the Employees : ");
+        int count = sc.nextInt();
+        EmployeeList lst = new EmployeeList(count);
+        lst.getlist();
+        lst.sortList();
+        System.out.println("EMPLOYEE LIST");
+        lst.printList();       
     }
-    
 }
