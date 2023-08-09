@@ -120,7 +120,7 @@ public class GUI extends javax.swing.JFrame {
     private void CalculateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalculateActionPerformed
         // TODO add your handling code here:
         try {
-        int divisor = Integer.parseInt(jTextField1.getText());
+        int divisor = Integer.parseInt(jTextField3.getText());
         String numbersText = jTextField2.getText();
         String[] numbersArray = numbersText.split("\\s+");
 
