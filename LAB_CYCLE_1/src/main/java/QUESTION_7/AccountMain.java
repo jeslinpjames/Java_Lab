@@ -45,7 +45,7 @@ public class AccountMain {
                     acc.deposit(amount);
                     break;
                 case 2:
-                    System.out.println("Enter the amount to be Withdrawn : ");
+                    System.out.print("Enter the amount to be Withdrawn : ");
                     double amt = sc.nextDouble();
                     acc.withdrawal(amt);
                     break;
@@ -54,8 +54,10 @@ public class AccountMain {
                     break;
                 case 4:
                     flag++;
+                    break;
                 default :System.out.println("Wrong Choice! Try again.");
             }         
         }while(flag==0);
+        System.out.println("Exiting...");
     }
 }
