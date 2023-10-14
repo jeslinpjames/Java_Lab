@@ -34,7 +34,7 @@ public class ExceptionHandling {
     }  
     public void handleNullPointerException(){
         try{
-            String str =null;
+            String str =input;
             int length =str.length();
             System.out.println("String Length = " +length);
         }catch(NullPointerException e){
