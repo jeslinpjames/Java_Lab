@@ -1,4 +1,4 @@
-/*
+/*  
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
@@ -24,11 +24,11 @@ public class FileCopy {
             if(sourceFile.exists()){
                 if(destinationFile.exists()){
                     System.out.print("The target file already exists. Overwrite? (y/n): ");
-                    String response = sc.next();
-                    if(!response.equalsIgnoreCase('y')){
+                    char response = sc.next().charAt(0);
+                    if (Character.toLowerCase(response) != 'y') {
                         System.out.println("File Copy Operation Cancelled");
-                        return;
-                    }
+                            return;
+                        }
                 }
                 try (FileReader fileReader = new FileReader(sourceFile);
                      FileWriter fileWriter = new FileWriter(destinationFile)) {
