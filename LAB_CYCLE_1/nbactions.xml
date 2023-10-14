@@ -12,7 +12,7 @@
             <properties>
                 <exec.vmArgs></exec.vmArgs>
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
-                <exec.appArgs>10 helloworld</exec.appArgs>
+                <exec.appArgs>5 HelloWorld!</exec.appArgs>
                 <exec.mainClass>QUESTION_2.strMain</exec.mainClass>
                 <exec.executable>java</exec.executable>
             </properties>
@@ -29,7 +29,7 @@
             <properties>
                 <exec.vmArgs>-agentlib:jdwp=transport=dt_socket,server=n,address=${jpda.address}</exec.vmArgs>
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
-                <exec.appArgs>10 helloworld</exec.appArgs>
+                <exec.appArgs>5 HelloWorld!</exec.appArgs>
                 <exec.mainClass>QUESTION_2.strMain</exec.mainClass>
                 <exec.executable>java</exec.executable>
                 <jpda.listen>true</jpda.listen>
@@ -49,7 +49,7 @@
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
                 <exec.mainClass>QUESTION_2.strMain</exec.mainClass>
                 <exec.executable>java</exec.executable>
-                <exec.appArgs>10 helloworld</exec.appArgs>
+                <exec.appArgs>5 HelloWorld!</exec.appArgs>
             </properties>
         </action>
     </actions>
